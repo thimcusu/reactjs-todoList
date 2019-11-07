@@ -1,16 +1,12 @@
 import React from 'react';
 
 const TodoItem = (props) =>{   
-    const items = props.items;
-    //console.log(items);
+    const { item, done, onClick} = props;
     return(
-        <div>
-            {items.map((item,index)=>
-            <div className="wrapper-item">
-                <input className="toggle" type="checkbox"/>
-                <div className="todo-item">{item.title}</div>
-            </div>
-            )}
+        <div className="wrapper-item">
+            {!done?<input onClick={onClick} className="toggle" type="checkbox"/>:
+            <input onClick={onClick} className="toggle" type="checkbox" defaultChecked />}
+            <div className="todo-item">{item.title}</div>
         </div>
     );
 }
